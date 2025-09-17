@@ -3,12 +3,17 @@ import clsx from "clsx";
 import styles from "./Button.module.css";
 
 export type ButtonProps = {
+  // Core
   children: React.ReactNode;
+  disabled?: boolean;
+
+  // Event handlers
+  onClick?: () => void;
+
+  // Custom
   variant?: "outlined" | "contained";
   size?: "sm" | "md" | "lg";
-  disabled?: boolean;
   className?: string;
-  onClick?: () => void;
 };
 
 export const Button: React.FC<ButtonProps> = ({
