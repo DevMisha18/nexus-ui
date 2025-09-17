@@ -7,26 +7,62 @@ const meta = {
   args: {
     children: "Click me!",
   },
-  argTypes: {
-    variant: { control: "select" },
-  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const OutlinedMd = {
-  args: {
-    variant: "outlined",
-    size: "md",
-    onClick: () => console.log("Clicked!"),
-  },
-} satisfies Story;
-
-export const ContainedLg = {
+export const Interactive = {
   args: {
     variant: "contained",
-    size: "lg",
-    disabled: true,
+    size: "md",
+    disabled: false,
   },
+  render: (args) => <Button {...args} />,
+} satisfies Story;
+
+export const AllOutlined = {
+  args: {
+    variant: "outlined",
+    disabled: false,
+  },
+  parameters: {
+    controls: { disable: true },
+  },
+  render: (args) => (
+    <div
+      style={{
+        display: "flex",
+        gap: "1rem",
+        alignItems: "center",
+      }}
+    >
+      <Button {...args} size="sm" />
+      <Button {...args} size="md" />
+      <Button {...args} size="lg" />
+    </div>
+  ),
+} satisfies Story;
+
+export const AllContained = {
+  args: {
+    variant: "contained",
+    disabled: false,
+  },
+  parameters: {
+    controls: { disable: true },
+  },
+  render: (args) => (
+    <div
+      style={{
+        display: "flex",
+        gap: "1rem",
+        alignItems: "center",
+      }}
+    >
+      <Button {...args} size="sm" />
+      <Button {...args} size="md" />
+      <Button {...args} size="lg" />
+    </div>
+  ),
 } satisfies Story;
